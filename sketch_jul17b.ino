@@ -3,10 +3,10 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 DHT dht(D5, DHT11);
-#define HOST "192.168.10.9"          // Enter HOST URL without "http:// "  and "/" at the end of URL
+#define HOST "localipaddressipv4"          // Enter HOST URL without "http:// "  and "/" at the end of URL
 
-#define WIFI_SSID "Anonymous"            // WIFI SSID here                                   
-#define WIFI_PASSWORD "F@h@d@likh@n2000"
+#define WIFI_SSID "wifi"            // WIFI SSID here                                   
+#define WIFI_PASSWORD "pass"
 #include <WiFiClient.h>
 
 WiFiClient wifiClient;
@@ -58,7 +58,7 @@ sendval2 = String(t);
  
 postData = "sendval=" + sendval + "&sendval2=" + sendval2;
 
-http.begin(wifiClient,"http://192.168.10.9/sensordata/dbwrite.php");              // Connect to host where MySQL databse is hosted
+http.begin(wifiClient,"http://localipaddressipv4/sensordata/dbwrite.php");              // Connect to host where MySQL databse is hosted
 http.addHeader("Content-Type", "application/x-www-form-urlencoded");            //Specify content-type header
 
   
